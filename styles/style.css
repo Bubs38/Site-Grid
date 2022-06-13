@@ -9,7 +9,10 @@ body {
   grid-template: 70px 500px minmax(300px,1fr) / 600px 1fr 600px;
 }
 
+
+
 /* -------------- Menu ------------- */
+
 
 .menu {
   grid-area: 1 / 1 / 2 / -1;
@@ -52,7 +55,6 @@ body {
   align-items: center;
   flex-direction: column;
   border-bottom: 1px solid #000;
-
 }
 
 .titre-menu:hover + .liste-menu {
@@ -87,7 +89,9 @@ body {
 }
 
 
+
 /* -------------- Présentation ------------- */
+
 
 .presentation {
   grid-area: 2 / 1 / 3 / 2;
@@ -124,17 +128,247 @@ body {
 
 
 
+/* -------------- Slider ------------- */
 
 
 .slider {
-  grid-area: 2 / 2 / 3 / -1;
-  background: chocolate;
+  grid-area: 2 / 2 / 3 / 4;
+  position: relative;
 }
+
+.container-slides {
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.container-slides img {
+  position: absolute;
+  top: 0px;
+  opacity: 0;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.6s ease-in-out;
+}
+
+img.active {
+  opacity: 1;
+}
+.cont-btn {
+  position: absolute;
+  top: 85%;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.btn-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  margin: 0 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: #333;
+  background: #f1f1f1;
+  border: 1px solid #333;
+}
+.btn-nav img {
+  width: 20px;
+  height: 20px;
+}
+
+
+
+/* -------------- Choix ------------- */
+
+
 .choix {
   grid-area: 3 / 1 / 4 / 3;
-  background: violet;
+  background: #222;
+  color: #f1f1f1;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
+.titre-choix {
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-family: Playfair Display, 'Times New Roman', Times, serif;
+  text-align: center;
+}
+.choix p {
+  font-size: 20px;
+  line-height: 1.4;
+}
+.go-galerie {
+  font-size: 20px;
+  display: block;
+  margin: 20px auto;
+  width: 300px;
+  padding: 20px;
+  text-decoration: none;
+  border: 1px solid #fff;
+  text-align: center;
+  border-radius: 5px;
+  color: #f1f1f1;
+  background: #222;
+}
+.go-galerie:hover {
+  transition: all 0.2s ease-in-out;
+  background: #f1f1f1;
+  color: #333;
+}
+.cont-medias {
+  position: absolute;
+  left: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.media {
+  margin: 10px 0;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #f1f1f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.media img {
+  width: 25px;
+}
+
+
+
+/* -------------- Contact ------------- */
+
+
 .contact {
-  grid-area: 3 / 3 / -1 /-1;
-  background: lightyellow;
+  grid-area: 3 / 3 / 4 / 4;
+  background: #f6db51;
+  color: #000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact h3 {
+  font-size: 70px;
+  padding-left: 50px;
+  font-family: Playfair Display, 'Times New Roman', Times, serif;
+}
+.go-contact {
+  flex-shrink: 0;
+  margin-right: 105px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.go-contact:hover {
+  transform: scale(1.2);
+}
+
+.go-contact img {
+  width: 50px;
+  height: 50px;
+}
+
+
+
+/* -------------- Responsive ------------- */
+
+@media screen and (max-width: 1400px){
+  .cont-medias {
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px){
+  .grille-accueil {
+    grid-template: 70px 500px minmax(300px,1fr) / 400px 1fr 400px; 
+  }
+  .contact h3 {
+    font-size: 50px;
+    padding-left: 50px;
+  }
+  .go-contact {
+    width: 70px;
+    height: 70px;
+    margin-right: 55px;
+  }
+  .go-contact img {
+    width: 35px;
+    height: 35px;
+  }
+}
+@media screen and (max-width: 950px){
+  .titre-choix {
+    font-size: 35px;
+  }
+  .go-galerie {
+    font-size: 18px;
+    width: 250px;
+    padding: 18px;
+  }
+}
+@media screen and (max-width: 800px){
+  .presentation {
+    padding: 30px;
+    border-bottom: 1px solid #000;
+  }
+  .presentation h1 {
+    font-size: 60px;
+    margin-top: 5px;
+  }
+  .grille-accueil {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .slider {
+    height: 500px;
+  }
+  .titre-choix {
+    font-size: 28px;
+    margin: 50px 10px 20px;
+  }
+  .go-galerie {
+    font-size: 18px;
+    width: 230px;
+    padding: 16px;
+    margin: 20px auto 50px;
+  }
+  .contact {
+    display: block;
+  }
+  .contact h3 {
+    padding-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .go-contact {
+    width: 70px;
+    height: 70px;
+    margin: 30px auto;
+  }
+  .go-contact img {
+    width: 35px;
+    height: 35px;
+  }
 }
